@@ -1,0 +1,116 @@
+Teste de API
+
+Cénario 1: Acessar o home com rota inicial "http://localhost:8400/"
+
+Dado que eu acesso a rota http://localhost:8400/
+Quando faço uma requisição do tipo GET
+Então recebo uma mensagem com status 200
+
+
+
+Cénario 2: Obter todos os usuários
+
+Dado que eu acesso a rota "http://localhost:8400/api/user"
+Quando faço uma requisição do tipo GET 
+Então obtenho uma lista de usários com retorno do status 200
+
+
+
+Cénario 3: Obter usuário válido por ID
+
+Dado que eu acesse a rota "http://localhost:8400/api/user/34"
+Quando faço uma requisição do tipo GET
+Então deve receber o usuário do Id com status 200
+
+Cénario 4: Criar um novo usuário
+
+Dado que eu acesse a rota "http://localhost:8400/api/user/create"
+Quando faço uma requisição do tipo POST com os dados
+ {
+     "name": "string",
+     "e-mail": "string",
+     "companies": ["string"]
+ }
+Então o usuário deve ser criado com status 201
+
+
+Cénario 5: Atualizar usuário
+
+Dado que eu acesse a rota "http://localhost:8400/api/user/{id}/update"
+Quando faço uma requisição do tipo PATCH com os dados 
+
+{
+     "name": "string",
+     "e-mail": "string",
+     "companies": ["string"]
+ }
+
+Então os dados de usuário deveram ser atualizados com o status 200
+
+
+Cénario 6: Deletar Usuário
+
+Dado que eu acesse a rota "http://localhost:8400/api/user/{id}/delete"
+Quando faço uma requisição do tipo DELETE
+Então o usário deve ser excluido com status 200
+
+
+Cénario 7:Obter todas as empresas
+
+Dado que eu acesse "http://localhost:8400/api/company"
+Quano faço uma requisição do tipo GET
+Então devo receber todas as empresas listas com status 200
+
+
+
+Cénario 8: Obter empresa por Id
+
+Dado que eu acesse "http://localhost:8400/api/company/{id}"
+Quando faço uma requisição do tipo GET
+Então devo receber os dados da empresa com status 200
+
+Cénario 9: Criar uma empresa 
+  
+Dado que eu acesso a rota "http://localhost:8400/api/company/create"
+    Quando faço uma requisição POST usando os dados:
+      {
+        "name": "string",
+        "cnpj": "string",
+        "adress": {
+          "cep": "string",
+          "country": "string",
+          "city": "string",
+          "street_location": "string",
+          "number": "string",
+          "district": "string"
+        }
+      }
+      """
+    Então a empresa deve ser criada com sucesso com status 201
+
+
+
+Cenário 10: Atualizar empresa 
+    Dado que eu acesso a rota "http://localhost:8400/api/company/{id}/update" com ID válido
+    Quando faço uma requisição do tipo PATCH usando os dados:
+   
+      {
+        "name": "string",
+        "cnpj": "string",
+        "adress": {
+          "cep": "string",
+          "country": "string",
+          "state": "string",
+          "city": "string",
+          "street": "string",
+          "number": "string",
+          "district": "string"
+        }
+      }
+    Então os dados da empresa devem ser atualizados com sucesso com status 200
+
+
+Cénario 11: Deletar empresa 
+    Dado que eu acesso a rota "http://localhost:8400/api/company/{id}/delete" 
+    Quando faço uma requisição do tipo DELETE
+    Então a empresa deve ser deletada com sucesso com status 200
